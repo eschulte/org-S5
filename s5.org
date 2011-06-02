@@ -12,24 +12,23 @@
 * what is S5
 - [[http://meyerweb.com/eric/tools/s5/][S5]] is "A Simple Standards-Based Slide Show System".
 
-- S5 packages a presentation as a slide show and turns the web browser
-  into the display software.
+- S5 allows writing of slide show presentations as /standards-based/
+  HTML and turns the web browser into the display software.
 
 * what is this
-- A customization of Org-mode's html export to generate a valid S5
-  presentation.
+- A single function named =org-export-as-s5= which modifies Org-mode's
+  existing html export to generate a valid S5 presentation.
 
-- Thanks to Pierre de Buyl's [[http://thread.gmane.org/gmane.emacs.orgmode/33143/match=s5][very thorough instructions]] the
-  implementation of an =org-export-as-s5= function was fairly
-  straightforward.
+- This implementation relies heavily on Pierre de Buyl's [[http://thread.gmane.org/gmane.emacs.orgmode/33143/match=s5][very thorough
+  instructions]] posted to the Org-mode mailing list.
 
 * where's the code
-- The code is available [[file:org-export-as-s5.el][here]].
+- The code is available [[http://gitweb.adaptive.cs.unm.edu/org-S5.git/blob_plain/HEAD:/org-export-as-s5.el][here]].
 
 - Simply evaluate this code, or add it to your =.emacs=, then call
   =M-x org-export-as-s5= form within an Org-mode buffer. *Note*: the
-  [[file:ui/]] directory holding S5 support files must be located in the
-  same directory as the exported html.
+  [[http://gitweb.adaptive.cs.unm.edu/org-S5.git/tree/HEAD:/ui][ui]] directory holding S5 support files must be located in the same
+  directory as the exported html.
 
 - Currently there are three themes which can be set with the
   following.

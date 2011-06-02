@@ -1,4 +1,4 @@
-(defvar org-s5-theme "default") ;; based off of the color-theme
+(defvar org-s5-theme "default")
 
 (defun org-export-as-s5
   (arg &optional hidden ext-plist to-buffer body-only pub-dir)
