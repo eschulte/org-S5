@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Fortran and Python</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="SNUG June 2011"/>
+<meta name="author" content="P. de Buyl -- CPTG (U of T) & Phys. Complex Sys. (Brussels)"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+ border: 1pt solid #AEBDCC;
+    padding: 5pt;
+ font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div class="layout">
+<div id="controls"><!-- no edit --></div>
+<div id="currentSlide"><!-- no edit --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>P. de Buyl -- CPTG (U of T) & Phys. Complex Sys. (Brussels) - Fortran and Python</h1>
+</div>
+</div>
+
+<div class="presentation">
+<div class="slide">
+<h1>Fortran and Python</h1>
+<h1>P. de Buyl -- CPTG (U of T) & Phys. Complex Sys. (Brussels)</h1>
+<h1>SNUG June </h1>
+</div>
+
+
+
+
+<div id="outline-container-1" class="outline-1 slide">
+<h1 id="sec-1">Background </h1>
+<div class="outline-text-1" id="text-1">
+
+
+<ul>
+<li>Working in physics: statistical mechanics &amp; nonlinear dynamics, mainly.
+</li>
+<li>Lots of numerical work.
+</li>
+<li>Mostly Fortran and Python.
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-1 slide">
+<h1 id="sec-2">Antithetical Languages </h1>
+<div class="outline-text-1" id="text-2">
+
+
+
+</div>
+
+<div id="outline-container-2_1" class="outline-2">
+<h2 id="sec-2_1">Python </h2>
+<div class="outline-text-2" id="text-2_1">
+
+<ul>
+<li>An interpreted object-oriented programming language.
+</li>
+<li>NumPy provides a powerful array syntax.
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2_2" class="outline-2">
+<h2 id="sec-2_2">Fortran </h2>
+<div class="outline-text-2" id="text-2_2">
+
+<ul>
+<li>A strongly typed compiled programming language.
+</li>
+<li>Access to plenty of libraries.
+</li>
+<li>A powerful array syntax built into the standard.
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-1 slide">
+<h1 id="sec-3">Tools </h1>
+<div class="outline-text-1" id="text-3">
+
+<ul>
+<li>Python with NumPy -&gt; <a href="http://www.scipy.org/">http://www.scipy.org/</a>
+</li>
+<li>A Fortran compiler (the gcc based gfortran works, some commercial compilers also work).
+</li>
+<li>All that is presented today runs on SciNet!
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-1 slide">
+<h1 id="sec-4">Introductory example </h1>
+<div class="outline-text-1" id="text-4">
+
+
+
+
+
+<pre class="src src-f90"><span style="color: #CC7833;">subroutine</span> <span style="color: #FFC66D;">multiply</span>(a,b,n,c)
+  <span style="color: #ffffff;">double precision</span>, <span style="color: #CC7833;">intent</span>(in) ::<span style="color: #b0c4de;"> a(n), b(n)</span>
+  <span style="color: #ffffff;">integer</span>, <span style="color: #CC7833;">intent</span>(in) ::<span style="color: #b0c4de;"> n</span>
+  <span style="color: #ffffff;">double precision</span>, <span style="color: #CC7833;">intent</span>(out) ::<span style="color: #b0c4de;"> c(n)</span>
+  <span style="color: #ffffff;">integer</span> ::<span style="color: #b0c4de;"> i</span>
+  <span style="color: #CC7833;">do</span> i=1,n
+     c(i)=a(i)*b(i)
+  <span style="color: #CC7833;">end do</span>
+<span style="color: #CC7833;">end subroutine</span> <span style="color: #FFC66D;">multiply</span>
+
+</pre>
+
+
+
+<pre class="src src-python"><span style="color: #CC7833;">import</span> numpy <span style="color: #CC7833;">as</span> np ; <span style="color: #CC7833;">import</span> my_f90mod
+a = np.arange(10,dtype=np.float64) ; a /= <span style="color: #CC7833;">len</span>(a)
+b = np.arange(10,dtype=np.float64) ; b /= <span style="color: #CC7833;">len</span>(b) ; b = -b + 1.
+c = my_f90mod.multiply(a,b)
+<span style="color: #CC7833;">print</span> a ; <span style="color: #CC7833;">print</span> b ; <span style="color: #CC7833;">print</span> c
+
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-1 slide">
+<h1 id="sec-5">A few remarks </h1>
+<div class="outline-text-1" id="text-5">
+
+<ul>
+<li>The intent of Fortran arguments is <i>always</i> specified (else, it falls back on the default: intent(in)).
+</li>
+<li>intent(out) arguments are returned by the Python function.
+</li>
+<li>"Automatic" information, such as the size of the array, is made optional in the wrapping process.
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-1 slide">
+<h1 id="sec-6">Example </h1>
+<div class="outline-text-1" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6_1" class="outline-2">
+<h2 id="sec-6_1">Computation </h2>
+<div class="outline-text-2" id="text-6_1">
+
+<p>   The computation of the velocity autocorrelation function is really slow in Python.
+   \begin{equation*} 
+   < {\bf v}(\tau) \cdot {\bf v} > = \int_0^\infty {\bf v}(t+\tau) \cdot {\bf v}(t)
+   \end{equation*}
+</p></div>
+
+</div>
+
+<div id="outline-container-6_2" class="outline-2">
+<h2 id="sec-6_2">Speed test </h2>
+<div class="outline-text-2" id="text-6_2">
+
+<p>   Some results for the speed test.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-1 slide">
+<h1 id="sec-7">Acknowledgments </h1>
+<div class="outline-text-1" id="text-7">
+
+
+<p>
+<img src="UofT_logo.png" style="float:right;" width="500px" alt="UofT_logo.png" />
+</p><ul>
+<li>Prof. R. Kapral
+</li>
+</ul>
+
+
+<br style="clear:both;" />
+
+
+<p>
+<img src="ULB_logo.png" style="float:right;" width="200px" alt="ULB_logo.png" />
+</p><ul>
+<li>Prof. P. Gaspard
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

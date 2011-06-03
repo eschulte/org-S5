@@ -1,0 +1,76 @@
+#+TITLE: Fortran and Python
+#+DATE: SNUG June 2011
+#+AUTHOR: P. de Buyl -- CPTG (U of T) & Phys. Complex Sys. (Brussels)
+#+OPTIONS: timestamp:nil creator:nil author:nil num:nil toc:nil
+
+
+* Background
+
+  - Working in physics: statistical mechanics & nonlinear dynamics, mainly.
+  - Lots of numerical work.
+  - Mostly Fortran and Python.
+
+* Antithetical Languages
+
+** Python
+    - An interpreted object-oriented programming language.
+    - NumPy provides a powerful array syntax.
+
+** Fortran 
+    - A strongly typed compiled programming language.
+    - Access to plenty of libraries.
+    - A powerful array syntax built into the standard.
+
+* Tools
+   - Python with NumPy -> http://www.scipy.org/
+   - A Fortran compiler (the gcc based gfortran works, some commercial compilers also work).
+   - All that is presented today runs on SciNet!
+
+
+* Introductory example
+  
+#+begin_src f90
+  subroutine multiply(a,b,n,c)
+    double precision, intent(in) :: a(n), b(n)
+    integer, intent(in) :: n
+    double precision, intent(out) :: c(n)
+    integer :: i
+    do i=1,n
+       c(i)=a(i)*b(i)
+    end do
+  end subroutine multiply
+#+end_src
+#+begin_src python
+  import numpy as np ; import my_f90mod
+  a = np.arange(10,dtype=np.float64) ; a /= len(a)
+  b = np.arange(10,dtype=np.float64) ; b /= len(b) ; b = -b + 1.
+  c = my_f90mod.multiply(a,b)
+  print a ; print b ; print c
+#+end_src
+
+* A few remarks
+   - The intent of Fortran arguments is /always/ specified (else, it falls back on the default: intent(in)).
+   - intent(out) arguments are returned by the Python function.
+   - "Automatic" information, such as the size of the array, is made optional in the wrapping process.
+
+* Example
+** Computation
+   The computation of the velocity autocorrelation function is really slow in Python.
+   \begin{equation*} 
+   < {\bf v}(\tau) \cdot {\bf v} > = \int_0^\infty {\bf v}(t+\tau) \cdot {\bf v}(t)
+   \end{equation*}
+** Speed test
+   Some results for the speed test.
+
+* Acknowledgments
+
+#+ATTR_HTML: style="float:right;" width="500px"
+[[file:UofT_logo.png]]
+  - Prof. R. Kapral
+#+HTML: <br style="clear:both;" />
+
+
+#+ATTR_HTML: style="float:right;" width="200px"
+[[file:ULB_logo.png]]
+  - Prof. P. Gaspard
+
