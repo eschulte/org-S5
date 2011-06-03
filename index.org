@@ -1,3 +1,3 @@
 Two Org-mode S5 examples
-1. file:s5.html -- a simple example with a dark theme and source code examples
-2. file:s5-test.html -- a more complex example with LaTeX, code, and images
+1. file:s5.html ([[file:s5.org][org]]) -- a simple example with a dark theme and source code examples
+2. file:s5-test.html ([[file:s5.test.org][org]]) -- a more complex example with LaTeX, code, and images
