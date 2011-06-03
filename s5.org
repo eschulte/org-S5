@@ -23,7 +23,7 @@
   instructions]] posted to the Org-mode mailing list.
 
 * where's the code
-- The code is available [[http://gitweb.adaptive.cs.unm.edu/org-S5.git/blob_plain/HEAD:/org-export-as-s5.el][here]].
+- The code is available [[https://github.com/eschulte/org-S5/raw/master/org-export-as-s5.el][here]]
 
 - Simply evaluate this code, or add it to your =.emacs=, then call
   =M-x org-export-as-s5= form within an Org-mode buffer. *Note*: the
@@ -38,4 +38,4 @@
     (setq org-s5-theme "i18n")        ; the i18n theme by the author of S5
   #+end_src
 
-- This entire directory is available as a [[http://gitweb.adaptive.cs.unm.edu/org-S5.git][git repository]].
+- This entire directory is available as a [[https://github.com/eschulte/org-S5][git repository]]
