@@ -34,8 +34,9 @@
                 (org-map-entries
                  (lambda () (save-excursion
                          (org-back-to-heading t)
-                         (put-text-property (point-at-bol) (point-at-eol)
-                                            'html-container-class class))))))))
+                         (when (= (car (org-heading-components)) 1)
+                           (put-text-property (point-at-bol) (point-at-eol)
+                                              'html-container-class class)))))))))
           (org-export-html-final-hook
            (list
             (lambda ()
