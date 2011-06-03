@@ -46,11 +46,12 @@ Optional keys include %author, %title and %date.")
             (lambda ()
               (let ((class "slide"))
                 (org-map-entries
-                 (lambda () (save-excursion
-                         (org-back-to-heading t)
-                         (when (= (car (org-heading-components)) 1)
-                           (put-text-property (point-at-bol) (point-at-eol)
-                                              'html-container-class class)))))))))
+                 (lambda ()
+                   (save-excursion
+                     (org-back-to-heading t)
+                     (when (= (car (org-heading-components)) 1)
+                       (put-text-property (point-at-bol) (point-at-eol)
+                                          'html-container-class class)))))))))
           (org-export-html-final-hook
            (list
             (lambda ()
