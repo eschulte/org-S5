@@ -60,7 +60,7 @@ Optional keys include %author, %title and %date.")
                  (regexp-quote "<div id=\"content\">")
                  (let ((info `(("author" . ,author)
                                ("title"  . ,title)
-                               ("date"   . ,date))))
+                               ("date"   . ,(substring date 0 10)))))
                    (join `("<div class=\"layout\">"
                            "<div id=\"controls\"><!-- no edit --></div>"
                            "<div id=\"currentSlide\"><!-- no edit --></div>"
