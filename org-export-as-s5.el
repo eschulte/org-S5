@@ -1,7 +1,17 @@
 (defvar org-s5-theme "default")
 
-(defvar org-s5-title-format "<h1>%author - %title</h1>"
-  "Format template to specify title.  Completed using `org-fill-template'.
+(defvar org-s5-title-string-fmt "<h1>%author - %title</h1>"
+  "Format template to specify title string.  Completed using `org-fill-template'.
+Optional keys include %author, %title and %date.")
+
+(defvar org-s5-title-page-fmt (mapconcat #'identity
+                                         '("<div class=\"slide\">"
+                                           "<h1>%title</h1>"
+                                           "<h1>%author</h1>"
+                                           "<h1>%date</h1>"
+                                           "</div>")
+                                         "\n")
+  "Format template to specify title page.  Completed using `org-fill-template'.
 Optional keys include %author, %title and %date.")
 
 (defun org-export-as-s5
@@ -47,19 +57,20 @@ Optional keys include %author, %title and %date.")
               (save-excursion
                 (replace-regexp
                  (regexp-quote "<div id=\"content\">")
-                 (join `("<div class=\"layout\">"
-                         "<div id=\"controls\"><!-- no edit --></div>"
-                         "<div id=\"currentSlide\"><!-- no edit --></div>"
-                         "<div id=\"header\"></div>"
-                         "<div id=\"footer\">"
-                         ,(org-fill-template org-s5-title-format
-                                             `(("author" . ,author)
-                                               ("title"  . ,title)
-                                               ("date"   . ,date)))
-                         "</div>"
-                         "</div>"
-                         ""
-                         "<div class=\"presentation\">")))))
+                 (let ((info `(("author" . ,author)
+                               ("title"  . ,title)
+                               ("date"   . ,date))))
+                   (join `("<div class=\"layout\">"
+                           "<div id=\"controls\"><!-- no edit --></div>"
+                           "<div id=\"currentSlide\"><!-- no edit --></div>"
+                           "<div id=\"header\"></div>"
+                           "<div id=\"footer\">"
+                           ,(org-fill-template org-s5-title-string-fmt info)
+                           "</div>"
+                           "</div>"
+                           ""
+                           "<div class=\"presentation\">"
+                           ,(org-fill-template org-s5-title-page-fmt info)))))))
             (lambda ()
               (save-excursion
                 (replace-regexp
