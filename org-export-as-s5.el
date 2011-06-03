@@ -42,17 +42,16 @@
               (save-excursion
                 (replace-regexp
                  (regexp-quote "<div id=\"content\">")
-                 (mapconcat #'identity
-                            `("<div class=\"layout\">"
-                              "<div id=\"controls\"><!-- no edit --></div>"
-                              "<div id=\"currentSlide\"><!-- no edit --></div>"
-                              "<div id=\"header\"></div>"
-                              "<div id=\"footer\">"
-                              ,(format "<h1>%s</h1>" title)
-                              "</div>"
-                              "</div>"
-                              ""
-                              "<div class=\"presentation\">") "\n"))))
+                 (join `("<div class=\"layout\">"
+                         "<div id=\"controls\"><!-- no edit --></div>"
+                         "<div id=\"currentSlide\"><!-- no edit --></div>"
+                         "<div id=\"header\"></div>"
+                         "<div id=\"footer\">"
+                         ,(format "<h1>%s</h1>" title)
+                         "</div>"
+                         "</div>"
+                         ""
+                         "<div class=\"presentation\">")))))
             (lambda ()
               (save-excursion
                 (replace-regexp
