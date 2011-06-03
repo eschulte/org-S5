@@ -1,5 +1,9 @@
 (defvar org-s5-theme "default")
 
+(defvar org-s5-title-format "<h1>%author - %title</h1>"
+  "Format template to specify title.  Completed using `org-fill-template'.
+Optional keys include %author, %title and %date.")
+
 (defun org-export-as-s5
   (arg &optional hidden ext-plist to-buffer body-only pub-dir)
   "Wrap `org-export-as-html' in setting for S5 export."
@@ -48,7 +52,10 @@
                          "<div id=\"currentSlide\"><!-- no edit --></div>"
                          "<div id=\"header\"></div>"
                          "<div id=\"footer\">"
-                         ,(format "<h1>%s</h1>" title)
+                         ,(org-fill-template org-s5-title-format
+                                             `(("author" . ,author)
+                                               ("title"  . ,title)
+                                               ("date"   . ,date)))
                          "</div>"
                          "</div>"
                          ""
