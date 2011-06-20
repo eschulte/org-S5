@@ -40,6 +40,7 @@ Optional keys include %author, %title and %date.")
                    ,(concat "<script src=\"ui/default/slides.js\" "
                             "type=\"text/javascript\"></script>"))))
           (org-export-html-toplevel-hlevel 1)
+          (org-export-html-postamble nil)
           (org-export-preprocess-hook
            (list
             (lambda ()
