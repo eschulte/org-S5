@@ -268,6 +268,7 @@ function keys(key) {
 			case 34: // page down
 			case 39: // rightkey
 			case 40: // downkey
+                        case 74: // j
 				if(number != undef) {
 					go(number);
 				} else if (!incrementals[snum] || incpos >= incrementals[snum].length) {
@@ -279,6 +280,8 @@ function keys(key) {
 			case 33: // page up
 			case 37: // leftkey
 			case 38: // upkey
+                        case 66: // b
+                        case 75: // k
 				if(number != undef) {
 					go(-1 * number);
 				} else if (!incrementals[snum] || incpos <= 0) {
