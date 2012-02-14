@@ -1,5 +1,7 @@
 (defvar org-s5-theme "default")
 
+(defvar org-s5-ui-dir "ui")
+
 (defvar org-s5-title-string-fmt "<h1>%author - %title</h1>"
   "Format template to specify title string.  Completed using `org-fill-template'.
 Optional keys include %author, %title and %date.")
@@ -21,7 +23,9 @@ Optional keys include %author, %title and %date.")
   (flet ((join (lst) (mapconcat #'identity lst "\n"))
          (sheet (href media id)
                 (org-fill-template
-                 (concat "<link rel=\"stylesheet\" href=\"%href\""
+                 (concat "<link rel=\"stylesheet\" href=\""
+                         org-s5-ui-dir
+                         "/%href\""
                          " type=\"text/css\" media=\"%media\" id=\"%id\" />")
                  `(("href" . ,href)
                    ("media" . ,media)
@@ -31,13 +35,14 @@ Optional keys include %author, %title and %date.")
                    "<meta name=\"defaultView\" content=\"slideshow\" />"
                    "<meta name=\"controlVis\" content=\"hidden\" />"
                    "<!-- style sheet links -->"
-                   ,(sheet (concat "ui/" org-s5-theme "/slides.css")
+                   ,(sheet (concat org-s5-theme "/slides.css")
                            "projection" "slideProj")
-                   ,(sheet "ui/default/outline.css" "screen" "outlineStyle")
-                   ,(sheet "ui/default/print.css" "print" "slidePrint")
-                   ,(sheet "ui/default/opera.css" "projection" "operaFix")
+                   ,(sheet "default/outline.css" "screen" "outlineStyle")
+                   ,(sheet "default/print.css" "print" "slidePrint")
+                   ,(sheet "default/opera.css" "projection" "operaFix")
                    "<!-- S5 JS -->"
-                   ,(concat "<script src=\"ui/default/slides.js\" "
+                   ,(concat "<script src=\"" org-s5-ui-dir
+                            "/default/slides.js\" "
                             "type=\"text/javascript\"></script>"))))
           (org-export-html-toplevel-hlevel 1)
           (org-export-html-postamble nil)
