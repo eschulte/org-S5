@@ -84,3 +84,5 @@ Optional keys include %author, %title and %date.")
                  (regexp-quote "<div id=\"table-of-contents\">")
                  "<div id=\"table-of-contents\" class=\"slide\">"))))))
       (org-export-as-html arg hidden ext-plist to-buffer body-only pub-dir))))
+
+(provide 'org-export-as-s5)
