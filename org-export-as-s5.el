@@ -17,7 +17,7 @@ Optional keys include %author, %title and %date.")
 Optional keys include %author, %title and %date.")
 
 (defun org-export-as-s5
-  (arg &optional hidden ext-plist to-buffer body-only pub-dir)
+  (arg &optional ext-plist to-buffer body-only pub-dir)
   "Wrap `org-export-as-html' in setting for S5 export."
   (interactive "P")
   (flet ((join (lst) (mapconcat #'identity lst "\n"))
@@ -83,6 +83,6 @@ Optional keys include %author, %title and %date.")
                 (replace-regexp
                  (regexp-quote "<div id=\"table-of-contents\">")
                  "<div id=\"table-of-contents\" class=\"slide\">"))))))
-      (org-export-as-html arg hidden ext-plist to-buffer body-only pub-dir))))
+      (org-export-as-html arg ext-plist to-buffer body-only pub-dir))))
 
 (provide 'org-export-as-s5)
