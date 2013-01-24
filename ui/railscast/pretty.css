@@ -7,6 +7,11 @@ body {
     color: #E6E1DC;
     font: 29px Arial, sans-serif;
 }
+pre {
+    color: #E6E1DC;
+    background-color: #232323;
+    font-size: 75%;
+}
 a {
     text-decoration: none;
     color: #A9F5F2;
