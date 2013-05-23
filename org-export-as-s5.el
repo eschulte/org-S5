@@ -17,7 +17,6 @@ Optional keys include %author, %title and %date.")
 Optional keys include %author, %title and %date.")
 
 (defun org-export-format-drawer-s5 (name content)
-  (print name)
   (if (string-equal name "NOTES")
       (concat "\n#+BEGIN_HTML\n<div class=\"notes\">\n#+END_HTML\n" content "\n#+BEGIN_HTML\n</div\n#+END_HTML\n")
     (org-export-format-drawer name content)))
