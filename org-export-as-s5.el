@@ -16,10 +16,17 @@ Optional keys include %author, %title and %date.")
   "Format template to specify title page.  Completed using `org-fill-template'.
 Optional keys include %author, %title and %date.")
 
+(defun org-export-format-drawer-s5 (name content)
+  (print name)
+  (if (string-equal name "NOTES")
+      (concat "\n#+BEGIN_HTML\n<div class=\"notes\">\n#+END_HTML\n" content "\n#+BEGIN_HTML\n</div\n#+END_HTML\n")
+    (org-export-format-drawer name content)))
+
 (defun org-export-as-s5
   (arg &optional ext-plist to-buffer body-only pub-dir)
   "Wrap `org-export-as-html' in setting for S5 export."
   (interactive "P")
+  (add-to-list 'org-drawers "NOTES")
   (flet ((join (lst) (mapconcat #'identity lst "\n"))
          (sheet (href media id)
                 (org-fill-template
@@ -47,6 +54,8 @@ Optional keys include %author, %title and %date.")
           (org-export-html-toplevel-hlevel 1)
           (org-export-html-postamble nil)
           (org-export-html-auto-postamble nil)
+          (org-export-with-drawers (list "NOTES"))
+          (org-export-format-drawer-function 'org-export-format-drawer-s5)
           (org-export-preprocess-hook
            (list
             (lambda ()
