@@ -111,7 +111,7 @@ function slideLabel() {
 		for (var o = 0; o < menunodes.length; o++) {
 			otext += nodeValue(menunodes[o]);
 		}
-		list.options[list.length] = new Option(n + ' : '  + otext, n);
+		list.options[list.length] = new Option(otext, n);
 	}
 }
 
@@ -170,12 +170,11 @@ function go(step) {
 	}
 	if (incrementals[snum].length > 0 && incpos > 0)
 		addClass(incrementals[snum][incpos - 1], 'current');
-	if (isOp) { //hallvord
-		location.hash = nid;
-	} else {
+	if (! isOp) { //hallvord
 		ce.style.visibility = 'hidden'; 
 		ne.style.visibility = 'visible';
 	} // /hallvord
+    location.hash = nid;
 	jl.selectedIndex = snum;
 	currentSlide();
 	loadNote();
