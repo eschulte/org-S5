@@ -7,3 +7,4 @@ html>body div#header, html>body div#footer,
 .layout {display: block;}
 .slide, .hideme, .incremental {visibility: hidden;}
 #slide0 {visibility: visible;}
+#slide0 h1{text-align: center;}
