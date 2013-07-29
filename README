@@ -1,0 +1,4 @@
+This repo provides S5 export support for *older* versions of Org-mode.
+
+For new versions of Org-mode (>8.0) use the ox-S5.el export backend
+now distributed in the contrib/ directory of the Org-mode repository.
