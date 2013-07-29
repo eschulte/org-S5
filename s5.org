@@ -3,9 +3,11 @@
 #+Babel: :results silent
 
 * quick start
-1. jump to the last heading/slide in this Org-mode file
-2. evaluate the emacs-lisp code block which defines the
-   =org-export-as-s5= command
+1. add the directory holding =org-export-as-s5.el= to your load path
+2. require the =org-export-as-s5= library
+   #+begin_src emacs-lisp
+     (require 'org-export-as-s5)
+   #+end_src
 3. call =M-x org-export-as-s5=
 4. open the resulting page in your browser
 
@@ -26,7 +28,7 @@
 - The code is available [[https://github.com/eschulte/org-S5/raw/master/org-export-as-s5.el][here]]
 
 - Simply evaluate this code, or add it to your =.emacs=, then call
-  =M-x org-export-as-s5= form within an Org-mode buffer. *Note*: the
+  =M-x org-export-as-s5= from within an Org-mode buffer. *Note*: the
   [[http://gitweb.adaptive.cs.unm.edu/org-S5.git/tree/HEAD:/ui][ui]] directory holding S5 support files must be located in the same
   directory as the exported html.
 
